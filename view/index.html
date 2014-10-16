@@ -6,26 +6,10 @@
 		<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="/static/css/all.css">
 		<title>书城首页</title>
-		<style>
-				.container-warp{
-					height:100%;
-					overflow:hidden;
-					position:relative;
-				}
-
-				.container-scroll {
-				    position: absolute;
-				    top: 45px;
-				    bottom: 0;
-				    left: 0;
-				    right: 0;
-				    overflow-y: scroll;
-				}
-			</style>
 	</head>
 	<body>
 		<div id="root" style="width:734px">
-			<div class="container-warp">
+			<div class="container-warp" id="app">
 				<% include include/header.html %>
 				<div class="container-scroll">
 					<% include include/index-top.html %>
