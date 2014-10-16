@@ -6,18 +6,36 @@
 		<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="/static/css/all.css">
 		<title>书城首页</title>
+		<style>
+				.container-warp{
+					height:100%;
+					overflow:hidden;
+					position:relative;
+				}
+
+				.container-scroll {
+				    position: absolute;
+				    top: 45px;
+				    bottom: 0;
+				    left: 0;
+				    right: 0;
+				    overflow-y: scroll;
+				}
+			</style>
 	</head>
 	<body>
 		<div id="root" style="width:734px">
-			<% include include/header.html %>
-			<div>
-				<% include include/index-top.html %>
-				<% include include/index-hot.html %>
-				<% include include/index-recommend.html %>
-				<% include include/index-female.html %>
-				<% include include/index-male.html %>
-				<% include include/index-free.html %>
-				<% include include/index-bottom.html %>
+			<div class="container-warp">
+				<% include include/header.html %>
+				<div class="container-scroll">
+					<% include include/index-top.html %>
+					<% include include/index-hot.html %>
+					<% include include/index-recommend.html %>
+					<% include include/index-female.html %>
+					<% include include/index-male.html %>
+					<% include include/index-free.html %>
+					<% include include/index-bottom.html %>
+				</div>
 			</div>
 		</div>
 	</body>
