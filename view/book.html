@@ -188,19 +188,19 @@
 					<section class="main-card" style="border-bottom:none">
 						<div class="u-book -detail">
 							<div class="book-cover">
-								<img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p01TQfpyV6px/06EirDzmjj8zuK.jpg">
+								<img alt="{{ item.title }}" v-bind:src="item.cover">
 							</div>
 							<div class="info">
-								<h3 class="title">老九门</h3>
+								<h3 class="title">{{ item.title }}</h3>
 								<p class="author">
-									<span class="author">南门三叔</span>
+									<span class="author">{{ item.authors }}</span>
 								</p>
 								<div class="u-grade">
-									<span class="read">12 个评价</span>
+									<span class="read">{{ item.score_count }} 个评价</span>
 								</div>
-								<p class="price">价格：1书币／千字</p>
+								<p class="price">价格：{{ item.price }}书币／千字</p>
 								<p class="count">
-									字数:70999字
+									字数:{{ item.word_count }}字
 									<span class="u-booktag -serial">连载中</span>
 								</p>
 							</div>
@@ -218,10 +218,10 @@
 						</div>
 						<div class="u-folder">
 							<div class="folder-cnt">
-								【陈伟霆、张艺兴、赵丽颖主演，同名电视剧正在热播】民国时期，长沙车站开来一辆来历不明的火车，彻查发现来自一座深山中的百年矿山，因为常年开采导致地皮塌陷，矿山中弥漫着一股奇怪的浓雾，长沙老九门盗墓家族张家和红家经过了一番查探，发现了深埋矿山之下，有着另外一个秘密，经过一番探险，他们深入矿山之中，来到矿山的底部，看到了让人无法置信的景象。千年之前坠落的三颗陨石，长白山下埋藏的秘密，他们到底从矿山底部带出了什么东西，为何世界慢慢变的异样诡异？
+								{{ item.content }}
 							</div>
 							<div class="folder-tail">
-								<div>最新：暂无</div>
+								<div>最新：{{ item.lastest }}</div>
 							</div>
 						</div>
 					</section>
@@ -232,8 +232,8 @@
 							</div>
 							<div class="folder-cnt">
 								<ul class="m-tag -color">
-									<li class="u-tag">
-										寻墓探险
+									<li class="u-tag" v-for="tag in item.tags">
+										{{ tag }}
 									</li>
 								</ul>
 							</div>
@@ -245,36 +245,17 @@
 						</div>
 						<div class="cnt">
 							<ul class="book-table">
-								<li>
+								<li v-for="book in author_books">
 									<div class="u-book -vertical">
 										<div class="book-cover">
-											<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01yfPOuJRok/dQJSYfAnD3AB42.jpg"/>
+											<img title="{{ book.title }}" v-bind:src="book.cover">	
 										</div>
 										<div class="info">
-											<h3 class="title">盗墓笔记</h3>
+											<h3 class="title">{{ book.title }}</h3>
 										</div>
 									</div>
 								</li>
-								<li>
-									<div class="u-book -vertical">
-										<div class="book-cover">
-											<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01yfPOuJRok/dQJSYfAnD3AB42.jpg"/>
-										</div>
-										<div class="info">
-											<h3 class="title">盗墓笔记</h3>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="u-book -vertical">
-										<div class="book-cover">
-											<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01yfPOuJRok/dQJSYfAnD3AB42.jpg"/>
-										</div>
-										<div class="info">
-											<h3 class="title">盗墓笔记</h3>
-										</div>
-									</div>
-								</li>
+								
 							</ul>
 						</div>
 					</section>
@@ -285,33 +266,13 @@
 						</div>
 						<div class="cnt">
 							<ul class="book-table">
-								<li>
+								<li v-for="book in related">
 									<div class="u-book -vertical">
 										<div class="book-cover">
-											<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01yfPOuJRok/dQJSYfAnD3AB42.jpg"/>
+											<img title="{{ book.title }}" v-bind:src="book.cover">	
 										</div>
 										<div class="info">
-											<h3 class="title">盗墓笔记</h3>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="u-book -vertical">
-										<div class="book-cover">
-											<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01yfPOuJRok/dQJSYfAnD3AB42.jpg"/>
-										</div>
-										<div class="info">
-											<h3 class="title">盗墓笔记</h3>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="u-book -vertical">
-										<div class="book-cover">
-											<img src="http://cover.read.duokan.com/mfsv2/download/s010/p01yfPOuJRok/dQJSYfAnD3AB42.jpg"/>
-										</div>
-										<div class="info">
-											<h3 class="title">盗墓笔记</h3>
+											<h3 class="title">{{ book.title }}</h3>
 										</div>
 									</div>
 								</li>
@@ -324,7 +285,7 @@
 						</div>
 						<div class="cnt">
 							<ul class="text">
-								<li>版权：版权信息</li>
+								<li>版权：{{ item.rights }}</li>
 							</ul>
 						</div>
 					</section>
@@ -335,4 +296,8 @@
 	<script src="/static/script/vue.js"></script>
 	<script src="/static/script/zepto.js"></script>
 	<script src="/static/script/pages/book.js"></script>
+
+
+
+
 </html>

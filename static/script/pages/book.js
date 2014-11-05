@@ -4,7 +4,7 @@ $.get('/ajax/book?id=' + id,function(d){
 		el:'#app',
 		data:d,
 		methods:{
-			
+
 		}
 	});
-});
+},'json');
