@@ -4,7 +4,9 @@ $.get('/ajax/book?id=' + id,function(d){
 		el:'#app',
 		data:d,
 		methods:{
-
+			readBook:function(){
+				location.href = "/reader"
+			}
 		}
 	});
 },'json');
