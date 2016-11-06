@@ -22,8 +22,11 @@ exports.get_book_data = function(id) {
 	if (!id) {
 		id = "18218";
 	}
-	var content = fs.readFileSync('./mock/book/' + id + '.json', 'utf-8');
-	return content;
+	if(fs.existsSync('./mock/book/' + id + '.json')){
+	 	return fs.readFileSync('./mock/book/' + id + '.json', 'utf-8');
+	}else{
+		return fs.readFileSync('./mock/book/18218.json', 'utf-8');
+	}
 }
 
 exports.get_rank_data = function(channelId) {

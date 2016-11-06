@@ -49,7 +49,7 @@ app.use(controller.get('/book', function*(){
 
 app.use(controller.get('/search', function*(){
 	this.set('Cache-Control', 'no-cache');
-	this.body = yield render('search');
+	this.body = yield render('search',{nav:'搜索'});
 }));
 
 app.use(controller.get('/reader', function*(){
@@ -65,6 +65,11 @@ app.use(controller.get('/male', function*(){
 app.use(controller.get('/female', function*(){
 	this.set('Cache-Control', 'no-cache');
 	this.body = yield render('female',{nav:'女生频道'});
+}));
+
+app.use(controller.get('/usercenter', function*(){
+	this.set('Cache-Control', 'no-cache');
+	this.body = yield render('user-center',{nav:'用户中心'});
 }));
 
 app.use(controller.get('/rank', function*(){
@@ -91,12 +96,12 @@ app.use(controller.get('/ajax/rank', function*(){
 /* 任务代码 */
 app.use(controller.get('/ajax/male', function*(){
 	this.set('Cache-Control', 'no-cache');
-	this.body = service.get_male_data(id);
+	this.body = service.get_male_data();
 }));
 
 app.use(controller.get('/ajax/female', function*(){
 	this.set('Cache-Control', 'no-cache');
-	this.body = service.get_female_data(id);
+	this.body = service.get_female_data();
 }));
 
 app.use(controller.get('/ajax/category', function*(){
